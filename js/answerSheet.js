@@ -21,7 +21,6 @@ function handleQuestion() {
             userAnswer[k].classList.add("placeholder-yourAnswer");
         }
     }
-    
 }
 
 handleQuestion()

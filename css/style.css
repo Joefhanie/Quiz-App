@@ -55,6 +55,19 @@ body {
     border-color: #000000; 
 }
 
+.alert{ 
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    padding: auto;
+    height: 45px;
+    display: none;
+}
+
+.alert p{
+    font-size: small;
+}
+
 @media (max-width: 768px) {
     .image-container {
         margin-top: 20px;
@@ -66,3 +79,4 @@ body {
         margin-bottom: 235px;
     }
 }
+
