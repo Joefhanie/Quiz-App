@@ -21,6 +21,29 @@
     <div class="col-md-12 text-center">
         <button type="button" class="btn btn-primary btn-custom" href="#">START</button>
     </div>
-    
+
+    <!--show modal when the user clicks start game-->
+    <div class="modal fade" id="modal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Enter Your Username</h5>
+                    <button type="button" class="btn btn-link" data-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>                    
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" id="modal-username" placeholder="Username">
+                </div>
+                <div class="alert alert-primary" role="alert" id="alert">
+                    <p>Username is required</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" onclick="submitName()">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/userName.js"></script>
 </body>
 </html>
