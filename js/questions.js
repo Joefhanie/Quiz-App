@@ -50,7 +50,7 @@ questions = [
     },
     {
         topic: "Technology",
-        question: "What is the name of the electric car company founded by Elon Musk?n",
+        question: "What is the name of the electric car company founded by Elon Musk?",
         choices: ["Toyota", "Lucid", "BYD", "Tesla"], 
         correctAnswer: "Tesla", 
         userAnswer: ""
