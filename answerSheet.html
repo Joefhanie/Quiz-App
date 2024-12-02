@@ -15,7 +15,7 @@
     <div class="col-12 col-md-12 answer-box" id="answerBoxContainer"></div>
 
     <div class="btn-container">
-         <a href="./score.html" class="text-white text-decoration-none">
+         <a href="#" onclick="displayScore()" class="text-white text-decoration-none">
              <button type="button" class="btn btn-primary btn-custom">GO BACK</button>
         </a>
         <a href="./index.html" class="text-white text-decoration-none">
@@ -24,5 +24,12 @@
     </div>
     <script src="./js/questions.js"></script>
     <script src="./js/answerSheet.js"></script>
+    <script>
+        function displayScore() {
+            const userScore = new URLSearchParams(window.location.search).get('score'); 
+            window.location.href = "./score.html?score=" + encodeURIComponent(userScore);
+        }
+    </script>
+
 </body>
 </html>

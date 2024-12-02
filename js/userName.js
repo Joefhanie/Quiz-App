@@ -14,15 +14,15 @@ function submitName(){
 
 function directHome(username){
     // file.html?name= 
-    window.location.href = "home.html?name=" + encodeURIComponent(username);
+    window.location.href = "introduction.html?name=" + encodeURIComponent(username);
 }
 
 function displayUsername(){
     const getName = new URLSearchParams(window.location.search);
     const name = getName.get('name'); 
     // display userName
-    if(document.getElementById('greetings')){
-        document.getElementById('greetings').textContent = name ? "Hello, " + name : "No name provided";
+    if(document.getElementById('greeting')){
+        document.getElementById('greeting').textContent = name ? "HELLO, " + name.toUpperCase() + "!": "No name provided";
     }
 }
 
