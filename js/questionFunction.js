@@ -54,9 +54,9 @@ function displayQuestions(index) {
             } 
 
             if (currentQuestion === questions.length - 1) {
-                currentQuestion = 0;
                 localStorage.setItem("questions", JSON.stringify(questions));
                 window.location.href = "./score.html?score=" + encodeURIComponent(score);
+                currentQuestion = 0;
             } else {
                 currentQuestion++;
             }
