@@ -7,6 +7,11 @@ let currentQuestion = 0;
 let score = 0;
 
 function displayQuestions(index) {
+    // if (currentQuestion !== 0 && currentQuestion <= questions.length-1) {
+    //     prevBtn.style.display = "block";
+    //     nextBtn.style.display = "block";
+    // }
+
     questionBox.innerHTML = "";
     questionBox.innerHTML = 
     `<p>${questions[index].question}</p>`
@@ -58,7 +63,27 @@ function displayQuestions(index) {
             displayQuestions(currentQuestion);
         });
     });
+
+    if(index === 0) {
+        prevBtn.style.display = "none";
+    } else if(index === questions.length-1) {
+        nextBtn.style.display = "none";       
+    } else {
+        prevBtn.style.display = "block";
+        nextBtn.style.display = "block";
+    }
 } 
+prevBtn.addEventListener("click", (e) => {
+    console.log(currentQuestion);
+    currentQuestion--;
+    displayQuestions(currentQuestion);
+})
+
+nextBtn.addEventListener("click", (e) => {
+    console.log(currentQuestion);
+    currentQuestion++;
+    displayQuestions(currentQuestion);
+})
 
 displayQuestions(currentQuestion);
 
