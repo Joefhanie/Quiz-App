@@ -14,25 +14,28 @@
     <h1 class="title">YOUR FINAL SCORE IS:</h1>
     <div class="score-container" id="scoreContainer"></div>
     <div class="btn-container">
-        <a href="#" onclick="passScore(userScore)" class="text-white text-decoration-none">
+        <a href="./answerSheet.html" class="text-white text-decoration-none">
             <button type="button" class="btn btn-primary btn-custom">RESULTS</button>
         </a>
         <a href="./index.html" class="text-white text-decoration-none">
             <button type="button" class="btn btn-primary btn-custom">REPLAY</button>
         </a>
     </div>
-    <script src="./js/questionFunction.js"></script>
+    <script src="./js/questions.js"></script>
     <script>  
-        const userScore = new URLSearchParams(window.location.search).get('score');
+        questions = JSON.parse(localStorage.getItem("questions")) || questions;
         const scoreContainer = document.getElementById("scoreContainer");
+        let score = 0;
         
-        scoreContainer.innerHTML += 
-        `<div class="placeholder-scoreValue">${userScore}</div>
-        <div class="placeholder-totalQuestions">20</div>`;
-
-        function passScore(userScore) {
-            window.location.href = "./answerSheet.html?score=" + encodeURIComponent(userScore);
+        for (let i = 0; i <= questions.length-1; i++) {
+            if(questions[i].userAnswer === questions[i].correctAnswer) {
+                score++;
+            }
         }
+
+        scoreContainer.innerHTML += 
+        `<div class="placeholder-scoreValue">${score}</div>
+        <div class="placeholder-totalQuestions">20</div>`;
     </script>
 </body>
 </html>

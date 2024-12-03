@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions Answered</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/subCSS.css">
+</head>
+<body>
+    <div>
+        <h1>YOU ANSWERED ALL OF THE QUESTIONS</h1>
+        <div class="d-flex justify-content-center gap-3">
+            <button class="btn btn-back" id="backBtn">BACK</button>
+            <button class="btn btn-submit" onclick="submit()">SUBMIT</button>
+        </div>
+    </div>
+
+    <script src="js/questions.js"></script>
+    <script src="js/questionFunction.js"></script>
+    <script>  
+        document.addEventListener("DOMContentLoaded", () => {
+            // Retrieve questions and score
+            const questions = JSON.parse(localStorage.getItem("questions")) || [];
+        
+            document.getElementById("backBtn").addEventListener("click", () => {
+                const lastIndex = questions.length - 1;
+                localStorage.setItem("currentQuestion", lastIndex);
+                window.location.href = "./quest.html";
+            });
+        
+            questions.forEach((q, i) => {
+                console.log(`Q${i + 1} Answer: ${q.userAnswer}`);
+            });
+        
+            document.querySelector(".btn-submit").addEventListener("click", () => {
+                window.location.href = "score.html";
+            });
+        });
+        
+    </script>
+    <!-- Bootstrap JS (optional for interactivity) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

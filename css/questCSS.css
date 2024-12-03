@@ -104,18 +104,38 @@ body, html {
   border-color: #FFFF13;
 }
 
+.choice.yellow.selected, .choice.yellow:hover  {
+  transform: scale(1.03);
+  background-color: #f5f5a0;
+  color: #000;
+}
+
 .choice.red {
   border-color: #FF0404;
+}
+
+.choice.red.selected, .choice.red:hover  {
+  transform: scale(1.03);
+  background-color: #f59b9b;
+  color: #000;
 }
 
 .choice.blue {
   border-color: #0022FF;
 }
 
+.choice.blue.selected, .choice.blue:hover {
+  transform: scale(1.03);
+  background-color: #99a5f5;
+  color: #000;
+}
+
 .choice.green {
   border-color: #00FF44;
 }
 
-.choice:hover {
-  opacity: 0.9;
+.choice.green.selected, .choice.green:hover {
+  transform: scale(1.03);
+  background-color: #99f5b1;
+  color: #000;
 }

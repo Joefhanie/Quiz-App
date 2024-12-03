@@ -1,89 +1,72 @@
+
 const questionLabel = document.getElementById("questionLabel");
 const questionBox = document.getElementById("questionBox");
 const choicesContainer = document.getElementById("choicesContainer");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
+
 let currentQuestion = 0;
-let score = 0;
 
 function displayQuestions(index) {
-    // if (currentQuestion !== 0 && currentQuestion <= questions.length-1) {
-    //     prevBtn.style.display = "block";
-    //     nextBtn.style.display = "block";
-    // }
-
-    questionBox.innerHTML = "";
-    questionBox.innerHTML = 
-    `<p>${questions[index].question}</p>`
-
-    questionLabel.innerHTML ="";
-    questionLabel.innerHTML = `<p>QUESTION ${index+1}</p>`;
-
+    questionBox.innerHTML = `<p>${questions[index].question}</p>`;
+    questionLabel.innerHTML = `<p>QUESTION ${index + 1}</p>`;
     choicesContainer.innerHTML = "";
+
     questions[index].choices.forEach(choice => {
         choicesContainer.innerHTML += `<button class="choice">${choice}</button>`;
-    })
+    });
 
     let choices = document.querySelectorAll('.choice');
+    choices.forEach((choice, i) => {
+        // Add color classes
+        choice.classList.add(["yellow", "red", "blue", "green"][i]);
 
-    // Add color classes to choices
-    choices.forEach((choice, index) => {
-        switch(index) {
-            case 0: 
-                choice.classList.add("yellow"); 
-                break;
-            case 1: 
-                choice.classList.add("red"); 
-                break;
-            case 2: 
-                choice.classList.add("blue"); 
-                break;
-            case 3: 
-                choice.classList.add("green"); 
-                break;
+        // Pre-select the user's answer
+        if (choice.textContent === questions[index].userAnswer) {
+            choice.classList.add("selected");
         }
-    });  
-    
-    choices.forEach(choice => {
+
         choice.addEventListener("click", (e) => {
-            const selectedAnswer = e.target.textContent;
-            questions[index].userAnswer = selectedAnswer;
+            // Update userAnswer
+            questions[index].userAnswer = e.target.textContent;
+            console.log(`Answer for Q${index + 1}: ${questions[index].userAnswer}`);
 
-            if(selectedAnswer === questions[index].correctAnswer) {
-                score++;
-            } 
+            // Update storage
+            localStorage.setItem("questions", JSON.stringify(questions));
 
-            if (currentQuestion === questions.length - 1) {
-                localStorage.setItem("questions", JSON.stringify(questions));
-                window.location.href = "./score.html?score=" + encodeURIComponent(score);
+            if (index === questions.length - 1) {
+                currentQuestion = 0;
+                window.location.href = "./submission.html";
             } else {
-                currentQuestion++;
+                index++;
             }
-            displayQuestions(currentQuestion);
+            displayQuestions(index);
         });
     });
 
-    if(index === 0) {
-        prevBtn.style.display = "none";
-    } else if(index === questions.length-1) {
-        nextBtn.style.display = "none";       
-    } else {
-        prevBtn.style.display = "block";
-        nextBtn.style.display = "block";
-    }
-} 
-prevBtn.addEventListener("click", (e) => {
-    console.log(currentQuestion);
+    // Display navigation buttons
+    prevBtn.style.display = index === 0 ? "none" : "block";
+}
+
+// Event listeners for navigation buttons
+prevBtn.addEventListener("click", () => {
     currentQuestion--;
     displayQuestions(currentQuestion);
-})
+    localStorage.setItem("currentQuestion", currentQuestion);
+});
 
-nextBtn.addEventListener("click", (e) => {
-    console.log(currentQuestion);
+nextBtn.addEventListener("click", () => {
+    if(currentQuestion >= questions.length-1) {
+        window.location.href = "./submission.html";
+    }
+    
     currentQuestion++;
     displayQuestions(currentQuestion);
-})
+    localStorage.setItem("currentQuestion", currentQuestion);
+});
+
+// Load state from storage
+currentQuestion = parseInt(localStorage.getItem("currentQuestion")) || 0;
+questions = JSON.parse(localStorage.getItem("questions")) || questions;
 
 displayQuestions(currentQuestion);
-
-

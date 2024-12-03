@@ -1,0 +1,53 @@
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../Assets/DVMT-6OXcAE2rZY.jpg.afab972f972bd7fbd4253bc7aa1cf27f.jpg'); /* image file path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    font-size: 3.5rem; /* Adjust this for text size */
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    text-shadow: -2px -2px 0 black, 2px -2px 0 black, -2px 2px 0 black, 2px 2px 0 black;
+    margin-bottom: 30px; /* Adjust for spacing below the header */
+}
+
+.btn {
+    font-size: 1.5rem; /* Adjust this for button text size */
+    font-weight: bold;
+    padding: 15x 30px; /* Adjust this for button size */
+    border-radius: 15px; /* Adjust for button corner roundness */
+}
+
+.btn-back {
+    background-color: #0099ff;
+    color: white;
+    border: none;
+    font-family: 'Press Start 2P', cursive;
+    border: 1px solid black;
+
+}
+
+.btn-back:hover {
+    background-color: #007acc;
+}
+
+.btn-submit {
+    background-color: #0099ff;
+    color: white;
+    border: none;
+    font-family: 'Press Start 2P', cursive;
+    border: 1px solid black;
+
+}
+
+.btn-submit:hover {
+    background-color: #007acc;
+}
