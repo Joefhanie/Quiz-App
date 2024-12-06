@@ -10,6 +10,39 @@ const topic4 = document.getElementById('Topic4');
 const bgContainer = document.querySelector('.bg-container');
 let currentQuestion = 0;
 
+function fadeIn(element) {
+    element.classList.add('fade-in');
+    element.classList.remove('fade-out');
+}
+
+// new added function 
+function fadeOut(element, callback) {
+    element.classList.add('fade-out');
+    element.classList.remove('fade-in');
+    setTimeout(callback, 500); 
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (questions[currentQuestion].topic == "Video Games") {
+        topic1.style.display = "block";
+        fadeIn(topic1);
+        
+        setTimeout(() => {
+            fadeOut(topic1, () => showBgContainer(topic1));
+        }, 3000); 
+    } else {
+        setTimeout(() => {
+            showBgContainer(topic1);
+        }, 0); 
+    }
+});
+    
+function showBgContainer(topic) {
+    topic.style.display = "none";
+    bgContainer.style.display = 'flex'; 
+    fadeIn(bgContainer);
+}
+
 function displayQuestions(index) {
     if (questions[index].topic == "Video Games") {
         topic1.style.display = "block";
@@ -68,8 +101,6 @@ function displayQuestions(index) {
 
             choice.addEventListener("click", (e) => {
                 questions[index].userAnswer = e.target.textContent;
-                console.log(`Answer for Q${index + 1}: ${questions[index].userAnswer}`);
-
                 localStorage.setItem("questions", JSON.stringify(questions));
 
                 if (index === questions.length - 1) {
@@ -104,30 +135,6 @@ nextBtn.addEventListener("click", (e) => {
         window.location.href = "./submission.html";
     }
 });
-
-function fadeIn(element) {
-    element.classList.add('fade-in');
-    element.classList.remove('fade-out');
-}
-
-// new added function 
-function fadeOut(element, callback) {
-    element.classList.add('fade-out');
-    element.classList.remove('fade-in');
-    setTimeout(callback, 500); 
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        showBgContainer(topic1);
-    }, 0); 
-});
-    
-function showBgContainer(topic) {
-    topic.style.display = "none";
-    bgContainer.style.display = 'flex'; 
-    fadeIn(bgContainer);
-}
 
 currentQuestion = parseInt(localStorage.getItem("currentQuestion")) || 0;
 questions = JSON.parse(localStorage.getItem("questions")) || questions;
