@@ -1,0 +1,39 @@
+/* Volume control container */
+.volume-control {
+    position: fixed; 
+    top: 20px; 
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+}
+
+/* Volume slider */
+.volume-slider {
+    display: none;
+    width: 100px;
+    appearance: none;
+    background: white;
+    border-radius: 5px;
+    height: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+/* Show volume slider on hover */
+.volume-control:hover .volume-slider {
+    display: block;
+}
+
+/* Mute/Unmute button */
+.btn-mute {
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+}
