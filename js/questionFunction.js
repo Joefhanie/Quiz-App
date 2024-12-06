@@ -67,6 +67,5 @@ nextBtn.addEventListener("click", (e) => {
 
 // Load state from storage
 currentQuestion = parseInt(localStorage.getItem("currentQuestion")) || 0;
-questions = JSON.parse(localStorage.getItem("questions")) || questions;
 
 displayQuestions(currentQuestion);
