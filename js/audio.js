@@ -16,7 +16,8 @@ const volumeSlider = document.getElementById('volume-slider');
 
 document.body.addEventListener('click', () => {
     muteBtn.textContent = '🔊';
-    
+    music.muted = false;
+
     if (music.paused) {
         music.play().catch((error) => console.error('Error playing music:', error));
     }
