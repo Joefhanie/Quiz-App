@@ -1,0 +1,54 @@
+.Topic4 {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: none;
+  overflow: hidden;
+  background: linear-gradient(to bottom, black 50%, rgb(33, 22, 3) 50%);
+}
+
+.background4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('img/4.png') no-repeat center center fixed;
+  background-size: cover;
+  z-index: 1; 
+  animation: breathing 4s infinite alternate;
+}
+
+.content4 {
+  position: relative;
+  z-index: 0; 
+  text-align: center;
+  padding: 0;
+  height: 100vh; 
+}
+
+.top-section4 {
+  height: 50%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  margin: 0;
+  padding: 0;
+}
+
+.bottom-section4 {
+  height: 50%;
+  background-color: #4B3413; 
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes breathing {
+  0% {
+    background-size: 100%;
+  }
+  50% {
+    background-size: 105%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}

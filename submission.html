@@ -23,17 +23,16 @@
     <script>  
         document.addEventListener("DOMContentLoaded", () => {
             // Retrieve questions and score
-            const questions = JSON.parse(localStorage.getItem("questions")) || [];
+            const lastIndex = questions.length-1;
         
             document.getElementById("backBtn").addEventListener("click", () => {
-                const lastIndex = questions.length - 1;
                 localStorage.setItem("currentQuestion", lastIndex);
                 window.location.href = "./quest.html";
             });
         
-            questions.forEach((q, i) => {
+            /*questions.forEach((q, i) => {
                 console.log(`Q${i + 1} Answer: ${q.userAnswer}`);
-            });
+            });*/
         
             document.querySelector(".btn-submit").addEventListener("click", () => {
                 window.location.href = "score.html";
