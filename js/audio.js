@@ -1,6 +1,6 @@
 const audioContainer = document.getElementById("audioContainer");
 
-audioContainer.innerHTML += 
+audioContainer.innerHTML = 
     `<audio id="background-music" loop>
         <source src="./Assets/BackgroundMusic.mp3" type="audio/mp3">
     </audio>
