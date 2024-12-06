@@ -9,9 +9,9 @@ body, html {
 /* Background */
 .bg-container {
   width: 100%;
-  height: 100%;
-  background: url('../Assets/Question\ Box\ top.png') no-repeat top center, url('../Assets/Question\ Box\ Bottom.png') no-repeat bottom center;
-  background-size: contain, contain;
+  height: 100vh; /*new*/
+  background: url('../Assets/backgroundWhole.png') no-repeat center center; /*new*/
+  background-size: cover; /*new*/
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -20,26 +20,51 @@ body, html {
 }
 
 /* Top Box */
+
+/*new*/
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.fade-in-question-label {
+  animation: fadeIn 3s ease-in-out forwards; 
+}
+
+.fade-out-question-text {
+  animation: fadeOut 2s ease-in-out forwards; 
+  animation-delay: 1s; 
+}
+/*end of new*/
+
 .top-box {
   width: 90%;
   height: 620px;
-  background-color: white;
-  border: 2px solid black;
-  border-radius: 10px;
+  background: url('../Assets/bginbox.png') no-repeat; /*new*/
+  background-size: cover; /*new*/
+  border: 8px solid black; /*new*/
+  border-radius: 30px; /*new*/
   padding: 20px;
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   text-align: center;
+  flex-grow: 1; /*new*/
 }
 
 .top-box p {
-  position: absolute; 
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 24px;
+  color: white; /*new*/
   font-weight: bold;
   margin: 0;
 }
@@ -64,7 +89,7 @@ body, html {
 }
 
 .question-label {
-  margin-top: -30px; /* Slight overlap with the large box */
+  margin-top: -29px; /*adjusted*/
   background-color: white;
   padding: 10px 30px;
   border: 3px solid black;
@@ -75,7 +100,7 @@ body, html {
   font-size: 20px;
   font-weight: bold;
   text-align: center;
-  z-index: 10; /* Ensure it overlaps properly */
+  z-index: 10; 
 }
 
 /* Choices Section */
@@ -84,7 +109,7 @@ body, html {
   grid-template-columns: repeat(2, 1fr);
   gap: 30px;
   width: 75%;
-  margin-top: 50px; /* adjust the gap betwee question label box and choices*/
+  margin-top: 50px; 
 }
 
 .choice {
@@ -104,6 +129,22 @@ body, html {
   border-color: #FFFF13;
 }
 
+.choice.red {
+  border-color: #FF0404;
+}
+
+.choice.blue {
+  border-color: #0022FF;
+}
+
+.choice.green {
+  border-color: #00FF44;
+}
+
+.choice:hover { 
+  background-color: #6a5c5c;/*new*/
+}
+
 .choice.yellow.selected, .choice.yellow:hover  {
   transform: scale(1.03);
   background-color: #f5f5a0;
@@ -120,6 +161,9 @@ body, html {
   color: #000;
 }
 
+/*
+  #f5f5a0
+*/
 .choice.blue {
   border-color: #0022FF;
 }
@@ -139,3 +183,59 @@ body, html {
   background-color: #99f5b1;
   color: #000;
 }
+
+/*new*
+.choice.clicked-yellow { 
+  background-color: #FFFF13; 
+  color: black;
+  border-color: black;
+} 
+.choice.clicked-red { 
+  background-color: #FF0404; 
+  color: black; 
+  border-color: black;
+} 
+.choice.clicked-blue { 
+  background-color: #0022FF; 
+  color: black; 
+  border-color: black;
+} 
+.choice.clicked-green { 
+  background-color: #00FF44; 
+  color: black; 
+  border-color: black;
+}
+*/
+
+/*new*/
+@media (max-width: 1200px) {
+  .top-box {
+    margin-top: 30px;
+  }
+  .choices {
+    margin-top: 25px;
+    margin-bottom: 30px;
+  } 
+}
+/*new*/
+
+/* Fading effect */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.fade-in {
+  animation: fadeIn 1s;
+}
+
+.fade-out {
+  animation: fadeOut 1s;
+}
+
+

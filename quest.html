@@ -9,23 +9,25 @@
   <link rel="stylesheet" href="css/questCSS.css">
 </head>
 <body>
-<div class="bg-container">
-  <!-- Top Section -->
-  <div class="top-box d-flex justify-content-between align-items-center">
-    <button class="arrow left" id="prevBtn">&lt;</button>
-    <div class="question-box" id="questionBox"></div>
-    <button class="arrow right" id="nextBtn">&gt;</button>
+  <div class="bg-container">
+    <!-- Top Section -->
+    <div class="top-box d-flex justify-content-between align-items-center">
+      <button class="arrow left" id="prevBtn">&lt;</button>
+      <div class="question-box" id="questionBox"></div>
+      <button class="arrow right" id="nextBtn">&gt;</button>
+    </div>
+
+    <!-- Question Label -->
+    <div class="question-label">
+      <p id="questionLabel"></p>
+    </div>
+
+    <!-- Choices Section -->
+    <div class="choices" id="choicesContainer"></div>
   </div>
 
-  <!-- Question Label -->
-  <div class="question-label" id="questionLabel"></div>
-
-  <!-- Choices Section -->
-  <div class="choices" id="choicesContainer"></div>
-</div>
-
-<script src="./js/questions.js"></script>
-<script src="./js/questionFunction.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/questionFunction.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

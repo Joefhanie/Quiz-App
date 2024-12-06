@@ -49,13 +49,13 @@ function displayQuestions(index) {
 }
 
 // Event listeners for navigation buttons
-prevBtn.addEventListener("click", () => {
+prevBtn.addEventListener("click", (e) => {
     currentQuestion--;
     displayQuestions(currentQuestion);
     localStorage.setItem("currentQuestion", currentQuestion);
 });
 
-nextBtn.addEventListener("click", () => {
+nextBtn.addEventListener("click", (e) => {
     if(currentQuestion >= questions.length-1) {
         window.location.href = "./submission.html";
     }
